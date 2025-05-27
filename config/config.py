@@ -5,9 +5,20 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Config:
-    # Google Sheets Configuration
-    GOOGLE_SHEETS_CREDENTIALS = os.getenv('GOOGLE_SHEETS_CREDENTIALS')
-    SPREADSHEET_ID = os.getenv('SPREADSHEET_ID')
+    # Affinity Configuration
+    AFFINITY_API_KEY = os.getenv('AFFINITY_API_KEY')
+    AFFINITY_INCUBATORS_LIST_ID = os.getenv('AFFINITY_INCUBATORS_LIST_ID')
+    AFFINITY_PORTFOLIO_LIST_ID = os.getenv('AFFINITY_PORTFOLIO_LIST_ID')
+    
+    # Email Configuration
+    EMAIL_SERVER = os.getenv('EMAIL_SERVER', 'imap.gmail.com')
+    EMAIL_ADDRESS = os.getenv('EMAIL_ADDRESS')
+    EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
+    
+    # API Keys
+    NEWS_API_KEY = os.getenv('NEWS_API_KEY')
+    TWITTER_BEARER_TOKEN = os.getenv('TWITTER_BEARER_TOKEN')
+    CRUNCHBASE_API_KEY = os.getenv('CRUNCHBASE_API_KEY')
     
     # Server Configuration
     HOST = "0.0.0.0"
@@ -20,6 +31,11 @@ class Config:
     # Scoring Configuration
     MINIMUM_SCORE_THRESHOLD = 0.5
     THESIS_RELEVANCE_WEIGHT = 0.4
+    
+    # Market Intelligence Configuration
+    MARKET_SCAN_INTERVAL = 3600  # seconds
+    MAX_NEWS_AGE_DAYS = 7
+    MIN_SOCIAL_ENGAGEMENT = 10
     
     # Sector Keywords (can be extended)
     SECTOR_KEYWORDS = {
@@ -148,4 +164,20 @@ class Config:
                 'ethical'
             ]
         }
+    }
+    
+    # Deal Flow Processing
+    DEALFLOW_CRITERIA = {
+        'warm_intro_bonus': 0.2,
+        'min_team_size': 2,
+        'preferred_stages': ['seed', 'series a'],
+        'follow_up_delay_days': 2
+    }
+    
+    # Market Intelligence Settings
+    MARKET_INTELLIGENCE = {
+        'news_relevance_threshold': 0.6,
+        'trend_detection_window_days': 30,
+        'min_funding_amount_usd': 100000,
+        'competitor_similarity_threshold': 0.7
     } 
