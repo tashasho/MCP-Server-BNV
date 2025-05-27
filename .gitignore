@@ -22,11 +22,13 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+.python-version
 
 # Virtual Environment
 venv/
 env/
 ENV/
+.venv/
 
 # IDE
 .idea/
@@ -47,4 +49,7 @@ htmlcov/
 .tox/
 coverage.xml
 *.cover
-.hypothesis/ 
+.hypothesis/
+
+# Documentation
+docs/_build/
